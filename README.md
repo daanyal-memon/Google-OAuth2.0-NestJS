@@ -1,17 +1,18 @@
-# Google-OAuth2.0-NestJS
+# Google-OAuth2.0-NestJS with PassportJS
 Creating a NestJS project to use Google Authentication API Services, i.e., Google OAuth2.0
 
 WHAT THIS PROJECT CONTAIN:
-- [x] Create Google OAuth2 App in Google Console
-- [ ] Create NestJS Project
-- [ ] Create Auth Controller
-- [ ] Create Auth Service
-- [ ] Create Google Strategy
-- [ ] Create Google Auth Guard
+- [x] Create Google OAuth2.0 App in Google Console
+- [x] Create NestJS Project
+- [x] Create Auth Controller
+- [x] Create Auth Service
+- [x] Create Google Strategy (using *PassportJS*)
+- [x] Create Google Auth Guard (*to invoke 'Google Strategy'*)
 - [ ] Connect to a Database
 - [ ] Configure Sessions 
 
 PROCEDURE:
+
 - Sign-in/up at Google Cloud
 - Click at **Console** on the top-right position
 - Select the **Existing Project** / create a **New Project**
@@ -39,3 +40,6 @@ PROCEDURE:
 - Add **Authorized redirect URL** *-- I added **http://localhost:3001/api/auth/google/redirect** (add the url where you want user to land after finishing authentication)*
 - Click on **CREATE** *(Now we're done!)*
 - *Copy & Save* the **Client ID** and **Client Secret** that is generated after clicking at **CREATE**
+
+**Things to know**
+- we used ***passportJS*** (library) which allows us to implement Authentication for our application
