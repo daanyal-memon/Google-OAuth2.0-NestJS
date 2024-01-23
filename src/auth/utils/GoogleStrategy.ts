@@ -6,9 +6,9 @@ import { Profile, Strategy } from "passport-google-oauth20";
 export class GoogleStrategy extends PassportStrategy(Strategy) {
     constructor() {
         super({
-            clientID: '826098680555-5qh8ntf71g3a1gie30f4pi9ugsk2akgm.apps.googleusercontent.com',   // don't just put your clientId or any information like this rather use env variables for safety purposes
-            clientSecret: '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',
-            callbackURL: 'http://localhost:3001/api/auth/google/redirect',
+            clientID: 'GOOGLE_CLIENT_ID',   // don't just put your clientId or any information like this rather use env variables for safety purposes
+            clientSecret: 'GOOGLE_CLIENT_SCRET',
+            callbackURL: 'http://www.example.com/auth/google/callback',
             scope: ['profile', 'email'] // the scope is what we need of the client
         });
     }
