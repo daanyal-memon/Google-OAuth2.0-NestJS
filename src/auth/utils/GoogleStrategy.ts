@@ -1,14 +1,23 @@
-import { Injectable } from "@nestjs/common";
+import { Inject, Injectable } from "@nestjs/common";
 import { PassportStrategy } from "@nestjs/passport";
 import { Profile, Strategy } from "passport-google-oauth20";
+import { AuthService } from "../auth.service";
 
 @Injectable()
 export class GoogleStrategy extends PassportStrategy(Strategy) {
-    constructor() {
+    constructor(
+        @Inject('AUTH_SERVICE') private readonly authService: AuthService
+    ) {
+        // super({
+        //     clientID: 'GOOGLE_CLIENT_ID',   // don't just put your clientId or any information like this rather use env variables for safety purposes
+        //     clientSecret: 'GOOGLE_CLIENT_SCRET',
+        //     callbackURL: 'http://www.example.com/auth/google/callback',
+        //     scope: ['profile', 'email'] // the scope is what we need of the client
+        // });
         super({
-            clientID: 'GOOGLE_CLIENT_ID',   // don't just put your clientId or any information like this rather use env variables for safety purposes
-            clientSecret: 'GOOGLE_CLIENT_SCRET',
-            callbackURL: 'http://www.example.com/auth/google/callback',
+            clientID: '826098680555-5qh8ntf71g3a1gie30f4pi9ugsk2akgm.apps.googleusercontent.com',   // don't just put your clientId or any information like this rather use env variables for safety purposes
+            clientSecret: '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',
+            callbackURL: 'http://localhost:3001/api/auth/google/redirect',
             scope: ['profile', 'email'] // the scope is what we need of the client
         });
     }
@@ -23,5 +32,9 @@ export class GoogleStrategy extends PassportStrategy(Strategy) {
         console.log(accessToken);
         console.log(refreshToken);
         console.log(profile);
+        const user = await this.authService.validateUser({ displayName: profile.displayName, email: profile.emails[0].value })
+        console.log("Validate");
+        console.log(user);
+        return user || null;
     }
 }

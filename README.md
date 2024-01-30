@@ -8,11 +8,11 @@ WHAT THIS PROJECT CONTAIN:
 - [x] Create Auth Service
 - [x] Create Google Strategy (using *PassportJS*)
 - [x] Create Google Auth Guard (*to invoke 'Google Strategy'*)
-- [ ] Connect to a Database
-- [ ] Configure Sessions 
+- [x] Connect to a Database
+- [x] Create a TypeORM Entity
+- [x] Configure Sessions
 
-PROCEDURE:
-
+**PROCEDURE:**
 - Sign-in/up at Google Cloud
 - Click at **Console** on the top-right position
 - Select the **Existing Project** / create a **New Project**
@@ -35,7 +35,7 @@ PROCEDURE:
 - Now go to the **Credentials** tab *(in the sub-menu at the left side of the site)*
 - Click on **CREATE CREDENTIALS**
 - Select **OAuth client ID**
-- select **Application Type: ***web application*** *(or whichever you're working on)*
+- select **Application Type:** ***web application (or whichever you're working on)***
 - Name the client
 - Add **Authorized redirect URL** *-- I added **http://localhost:3001/api/auth/google/redirect** (add the url where you want user to land after finishing authentication)*
 - Click on **CREATE** *(Now we're done!)*
@@ -43,3 +43,12 @@ PROCEDURE:
 
 **Things to know**
 - we used ***passportJS*** (library) which allows us to implement Authentication for our application
+
+**Technologies used**
+- NestJS
+- Google OAuth2.0
+- PassportJS
+- TypeORM
+- mySQL2 (database)
+
+*Thanks Anson The Developer for helping me out in this program!*
